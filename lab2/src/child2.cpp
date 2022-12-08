@@ -1,11 +1,12 @@
-#include "utils.h"
+#include <string>
+#include <iostream>
 
 int main() {
     std::string s;
     while (getline(std::cin, s)) {
-        for (int i = 0; i < s.size(); i++){
-            if (s[i] == ' ') s[i] = '_';
-            cout << s[i];
+        for (char & i : s){
+            if (i == ' ') std::cout << "_";
+            else std::cout << i;
         }
     }
     return 0;

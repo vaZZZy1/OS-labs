@@ -1,5 +1,27 @@
 #include "parent.h"
 
+void CreatePipe(int fd[]) {
+    if (pipe(fd) != 0) {
+        std::cout << "INVALID CREATE" << std::endl;
+        exit(EXIT_FAILURE);
+    }
+}
+
+void GetForkError() {
+    std::cout << "FORK ERROR" << std::endl;
+    exit(EXIT_FAILURE);
+}
+
+void MakeDup2(int oldFd, int newFd) {
+    if (dup2(oldFd, newFd) == -1) {
+        std::cout << "dup2 ERROR" << std::endl;
+        exit(EXIT_FAILURE);
+    }
+}
+
+void GetExecError(std::string const &executableFile) {
+    std::cout << "Exec \"" << executableFile << "\" error." << std::endl;
+}
 
 std::vector<std::string> ParentRoutine(char const *pathToChild1, char const *pathToChild2,
                                        const std::vector<std::string> &input){
