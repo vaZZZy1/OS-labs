@@ -1,4 +1,0 @@
-#ifndef OS_LABS_CHILD1_H
-#define OS_LABS_CHILD1_H
-
-#endif //OS_LABS_CHILD1_H

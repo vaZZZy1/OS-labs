@@ -38,10 +38,13 @@ std::vector<std::string> ParentRoutine(char const *pathToChild1, char const *pat
 
 
     if (pid == 0) {
+
         close(firstPipe[WRITE_END]);
         close(pipeBetweenChildren[READ_END]);
+
         MakeDup2(firstPipe[READ_END], STDIN_FILENO);
         MakeDup2(pipeBetweenChildren[WRITE_END], STDOUT_FILENO);
+
         if (execl(pathToChild1, "", nullptr) == -1) {
             GetExecError(pathToChild1);
         }
@@ -51,6 +54,7 @@ std::vector<std::string> ParentRoutine(char const *pathToChild1, char const *pat
         GetForkError();
     } else {
         close(firstPipe[READ_END]);
+        signal(SIGPIPE, SIG_IGN);
         for (const std::string & s : input) {
             std::string s_tmp = s + "\n";
             write(firstPipe[WRITE_END], s_tmp.c_str(), s_tmp.size());
