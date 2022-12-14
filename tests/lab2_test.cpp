@@ -26,7 +26,7 @@ TEST(FirstLabTests, SimpleTest) {
         "_ _ _"
     };
     input[3] = {
-        "\b \n\b"
+        "\b "
     };
     std::array< std::vector<std::string>, inputSize> expectedOutput;
     expectedOutput[0] = {
