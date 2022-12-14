@@ -13,52 +13,41 @@ TEST(FirstLabTests, SimpleTest) {
     std::array< std::vector<std::string>, inputSize> input;
     input[0] = {
             "abcabc",
-            "qwerty qwerty",
-            "A n O t H e R             TeSt",
-            "oNe1 Two2  thr3ee   5fiVe     Ei8ght        13thiRTEEN             ...",
-            "2 + 2 = 4",
-            "0123456789 abcdefghijklmnopqrstuvwxyz"
+            "ad SD da",
+            "USE_LESS",
+            "kEk sDf_doupf"
     };
     input[1] = {
-            "second test",
-            "1234567890/.,'][",
-            ".            .             .                         ...............",
-            "!?+-*/_;",
+        "  ",
+        ""
     };
     input[2] = {
-            "",
-            "                  "
+        "__A  ",
+        "_ _ _"
     };
     input[3] = {
-            "AAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+        "\b \n\b"
     };
-
     std::array< std::vector<std::string>, inputSize> expectedOutput;
     expectedOutput[0] = {
             "ABCABC",
-            "QWERTY QWERTY",
-            "A N O T H E R TEST",
-            "ONE1 TWO2 THR3EE 5FIVE EI8GHT 13THIRTEEN ...",
-            "2 + 2 = 4",
-            "0123456789 ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+            "AD_SD_DA",
+            "USE_LESS",
+            "KEK_SDF_DOUPF"
     };
     expectedOutput[1] = {
-            "SECOND TEST",
-            "1234567890/.,'][",
-            ". . . ...............",
-            "!?+-*/_;",
+        "__",
+        ""
     };
     expectedOutput[2] = {
-            "",
-            " ",
+        "__A__",
+        "_____"
     };
     expectedOutput[3] = {
-            "AAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+        "\b_"
     };
-
-
     for (int i = 0; i < inputSize; i++) {
-        auto result = ParentRoutine(getenv("child1"), getenv("child2"), input[i]);
+        auto result = ParentProcces("/home/vazy1/mai/OS-labs/build/lab2/child1", "/home/vazy1/mai/OS-labs/build/lab2/child2", input[i]);
         EXPECT_EQ(result, expectedOutput[i]);
     }
 }

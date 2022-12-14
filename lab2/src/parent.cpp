@@ -23,7 +23,7 @@ void GetExecError(std::string const &executableFile) {
     std::cout << "Exec \"" << executableFile << "\" error." << std::endl;
 }
 
-std::vector<std::string> ParentRoutine(char const *pathToChild1, char const *pathToChild2,
+std::vector<std::string> ParentProcces(char const *pathToChild1, char const *pathToChild2,
                                        const std::vector<std::string> &input){
 
     std::vector<std::string> output;

@@ -8,6 +8,7 @@ int main() {
             if (i == ' ') std::cout << "_";
             else std::cout << i;
         }
+        std::cout << '\n';
     }
     return 0;
 }

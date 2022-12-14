@@ -10,7 +10,7 @@ int main() {
         input.push_back(s);
     }
 
-    std::vector <std::string> output = ParentRoutine("child1", "child2", input);
+    std::vector <std::string> output = ParentProcces("child1", "child2", input);
 
     for (const auto &res : output){
         std::cout << res << std::endl;

@@ -5,6 +5,7 @@
 #include <iostream>
 #include <fstream>
 #include <vector>
+#include <unistd.h>
 
 enum PipeEnd {
     READ_END,
@@ -16,7 +17,7 @@ void GetForkError();
 void MakeDup2(int oldFd, int newFd);
 void GetExecError(std::string const &executableFile);
 
-std::vector<std::string> ParentRoutine(char const *pathToChild1, char const *pathToChild2,
+std::vector<std::string> ParentProcces(char const *pathToChild1, char const *pathToChild2,
                                        const std::vector<std::string> &input);
 
 #endif //LAB2_PARENT_H
