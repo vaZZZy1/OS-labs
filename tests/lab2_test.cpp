@@ -3,6 +3,7 @@
 #include <array>
 #include <memory>
 #include <parent.h>
+#include <stdlib.h>
 #include <vector>
 
 
@@ -47,7 +48,7 @@ TEST(FirstLabTests, SimpleTest) {
         "\b_"
     };
     for (int i = 0; i < inputSize; i++) {
-        auto result = ParentProcces("/home/vazy1/mai/OS-labs/build/lab2/child1", "/home/vazy1/mai/OS-labs/build/lab2/child2", input[i]);
+        auto result = ParentProcces(getenv("child1"), getenv("child2"), input[i]);
         EXPECT_EQ(result, expectedOutput[i]);
     }
 }
